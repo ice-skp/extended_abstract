@@ -1,0 +1,82 @@
+\documentclass[10pt]{article}{\twocolumn}
+\usepackage[margin=0.3in,top=0.7in,bottom=0.7in,]{geometry}
+\usepackage{graphicx}
+\usepackage{amsthm, amsmath, amssymb}
+\usepackage{setspace}\setstretch{1}
+\usepackage{physics,amsmath}
+\usepackage[loose,nice]{units}
+\usepackage{apacite}
+\usepackage{float}
+\onecolumn
+\title{Investigating impacts of basal channel formation and evolution on ocean melting in an embayed Antarctic ice shelf}
+\author{Sienna Phillips}
+\date{2022}
+\twocolumn
+
+\begin{document}
+\maketitle
+
+\indent
+\textbf{Introduction:}
+As global temperatures rise, the Antarctic ice sheet continues to exhibit significant thinning and retreat \cite{RN9}. While several studies have highlighted the link between rising ocean temperatures and elevated ice shelf melting \cite{RN34,RN35,RN36,RN37}, the geometry of the ice shelf can also influence melt rates. Figure 1. shows satellite of Pine Island Glacier in West Antarctica where several longitudinal grooves can be seen. These indentations are deep channels incised into the underside of the ice shelf and are known to exist throughout the ice shelves of both East and West Antarctica \cite{RN14}. The exact cause of these channels as well as their overall impact on the ice shelf is unknown, however, one proposed mechanism for their formation is heterogeneity in the ice-draft (thickness in the shelf below sea level). This variability in thickness results in the speed up of buoyant plumes which entrain underlying warm seawater and so melt rates are expected to increase along parts of the draft where steep slopes occur. 
+\newline
+\indent
+We aim to investigate this mechanism for channel formation and simulate two situations; one in which the ice draft is homogeneous, and another where we have introduced some heterogeneity. We also intend to compare the melt rates of both situations.
+\begin{figure}[htbp]
+\includegraphics[width=3.8
+in]{/Users/siennaphillips/desktop/Medaes/Figures/Antarctica_map.pdf}
+\caption{\textit{Pine Island Glacier located in West Antarctica with clear indentations running in the along flow direction}}
+\label{default}
+\end{figure}
+
+\indent
+\textbf{Methods:}
+The domain compromises of a 3 dimensional, idealised embayed ice shelf with dimensions of 50 km width and 80 km length, based on that of PIG. The shelf is embayed and so no slip boundary conditions are enforced on the lateral boundaries.
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=3in]{/Users/siennaphillips/desktop/Review_figures/model_geom.pdf}
+\caption{\textit{Geometry of the embayed ice shelf model used in this project.}}
+\label{default}
+\end{center}
+\end{figure}
+\newline
+The Shallow Shelf Approximation (SSA) is used as the equations for the conservation of momentum, as implemented in the Ice-sheet and Sea-level System Model 
+\newline
+(ISSM; https://issm.jpl.nasa.gov).
+Glen's flow law was used to describe the ice viscosity with the Glen's flow law exponent, taken to be 3.
+We ran the SSA for 140 years until a steady state was reached and then introduced a plume model for a further 50 years. This was done firstly on a shelf with a heterogeneous ice draft then later we repeated the same simulation but introduced the following perturbation at the grounding line (the line where ice transitions from being grounded to floating) \begin{math} \delta H=200\bigg(cos(\frac{30\pi x}{Lx})\bigg)\end{math}, where \begin{math}L_{x}\end{math} the the length of the domain (50 km).
+\newpage
+\indent
+\textbf{Results:}
+\begin{figure}[H]
+\includegraphics[width=4
+in]{/Users/siennaphillips/desktop/Medaes/Figures/nochan_mr.pdf}
+\caption{\textit{Left:transect of the ice draft 30 km downstream of the grounding line showing clear transverse variability. Right: melt rates across entire shelf}}
+\label{default}
+\end{figure}
+\begin{figure}[htbp]
+\includegraphics[width=4
+in]{/Users/siennaphillips/desktop/Medaes/Figures/chans_mr.pdf}
+\caption{\textit{Right: transect of ice draft 30 km from the grounding line showing the perturbations in thickness which have evolved into longitudinal channels. Left: melt rates across entire shelf.}}
+\label{default}
+\end{figure}
+\textbf{Discussion:}
+Figures 3 and 4 show the shape of the ice draft 30 km from the grounding line as well as the melt rates after the plume parameterisation has been run. Figure 3 shows that variability in the ice draft arises even before the perturbation is added. This is due to the velocity gradient across the shelf. The velocity is greatest along the centreline and decreases to zero on the lateral walls. One large channel is produced and we can see that the melt rates are indeed highest along the walls of this channel where the basal slopes are high. The plumes can travel faster along these walls and so we see melt rate increasing. 
+\newline
+Figure 4 shows the impact of the perturbation added at the grounding line. The channels decrease in amplitude as the flow moves toward the ice front. The overall shape of the large channel seen without the perturbations is also maintained as can be seen in the transect. Melt rates are highest along the walls of the channels as expected where the variability in ice draft is highest and overall, melt rates are higher than when no perturbations were added. This could be due to the greater number of steep basal slopes present in the ice draft due to the channels created by the perturbations. 
+\newline
+The values of the melt rates themselves in both cases are very low. This is most likely due to the model not being coupled to an ocean model which would account for the broad, overturning ocean circulation beneath an ice shelf. We intend to couple such a model to the plume model to get more accurate melt rate values in the future. We also aim to assess the impact on the structural integrity of the ice shelf that basal channels may have.
+\newline
+
+\indent
+\textbf{Conclusions:}
+We conclude that transverse variability caused both by lateral shear and the heterogeneity in ice thickness at the grounding line can lead to higher melt rates where steeper slopes are present. We look forward to further analysis of basal channels as well as their overall impact on the ice shelf stability.
+\newline
+
+\indent
+\textbf{Acknowledgments:}
+Satellite data acquired for Figure 1 available at https://nsidc.org/data/NSIDC-0102/versions/2 and https://gisgeography.com/antarctica-map-satellite-image/
+\bibliographystyle{apacite}
+\bibliography{refs}
+
+\enddocument
